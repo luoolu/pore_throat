@@ -11,7 +11,7 @@ import os
 import cv2 as cv
 import numpy as np
 
-filename = "/home/luolu/Downloads/data/yashi_bp/pore_throat_img/mv_pore_Single_1.jpg"
+filename = "/home/luolu/Downloads/data/yashi_bp/pore_throat_img/pore_extract_10Xcrop/16-0460_5.png"
 
 img = cv.imread(filename, 0)
 
@@ -55,4 +55,4 @@ for i in range(0, nb_components):
     if sizes[i] >= min_size:
         cleaned[output == i + 1] = 255
 
-cv.imwrite("/home/luolu/Downloads/data/yashi_bp/pore_throat_img/cleaned_mv_pore_single1.png", cleaned)
+cv.imwrite("/home/luolu/Downloads/data/yashi_bp/pore_throat_img/cleaned_16-0460_5.png", cleaned)

@@ -14,7 +14,9 @@ import numpy as np
 from PIL import Image
 import numpy as np
 
-root_path = '/home/luolu/PycharmProjects/ParticleDetection/'
+# root_path = '/home/luolu/PycharmProjects/ParticleDetection/'
+# first step, color space
+
 
 if __name__ == '__main__':
     base_name = ''
@@ -70,7 +72,7 @@ if __name__ == '__main__':
         # Put mask over top of the original image.
         result = cv.bitwise_and(img, img, mask=mask)
         # save
-        cv.imwrite("/home/luolu/Downloads/data/yashi_bp/pore_throat_img/pore_mask/" + base_name, mask)
+        cv.imwrite("/home/luolu/Downloads/data/yashi_bp/pore_throat_img/pore_extract_10Xcrop/" + base_name, result)
         # cv.imwrite(root_path + "data/yashi_qscan/src_image/" + base_name, result)
         # cv.imwrite("/home/luolu/Downloads/data/CT_wst/cropped_filter/" + base_name, result)
         # cv.imwrite("/home/luolu/Downloads/data/yashi_bp/pore_throat_img/mv_pore_Single_1.jpg", result)

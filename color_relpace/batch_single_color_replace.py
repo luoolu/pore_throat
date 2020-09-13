@@ -12,13 +12,11 @@ import cv2
 from PIL import Image
 import numpy as np
 
-
-
 if __name__ == '__main__':
     base_name = ''
     counter = 0
-    for filename in sorted(glob.glob('/home/luolu/Downloads/data/yashi_bp/pore_throat_img/Single_1.jpg')):
-        img = cv2.imread(filename, 0)
+    for filename in sorted(glob.glob('/home/luolu/Downloads/data/yashi_bp/pore_throat_img/cleaned_10xcrop_src/*.png')):
+        img = cv2.imread(filename)
         height, width, channels = img.shape
         print(filename)
         base_name = os.path.basename(filename)
@@ -41,16 +39,12 @@ if __name__ == '__main__':
         # white_areas = (red == 0) & (blue == 128) & (green == 128)
         # data[..., :-1][white_areas.T] = (0, 0, 0)
 
-        white_areas = (red == 255) & (blue == 255) & (green == 255)
-        data[..., :-1][white_areas.T] = (0, 255, 255)
-
-
-
-
+        white_areas = (red == 0) & (blue == 0) & (green == 0)
+        data[..., :-1][white_areas.T] = (0, 41, 58)
 
         # light Blue 0, 255, 255
         # fen,  255, 192, 192
         # caolv, 0, 128, 128
         im2 = Image.fromarray(data)
-        im2.save("/home/luolu/Downloads/data/yashi_bp/pore_throat_img/blue_single1.png")
+        im2.save("/home/luolu/Downloads/data/yashi_bp/pore_throat_img/color_cleaned/" + base_name)
         # im2.show()

@@ -5,18 +5,29 @@
 # @Software: PyCharm
 # @Github ：https://github.com/luolugithub
 # @E-mail ：argluolu@gmail.com
+import glob
+import os
 
 import cv2
 import numpy as np
 
-img = cv2.imread('/home/luolu/Downloads/data/yashi_bp/pore_throat_img/pore_mask/16-0460_5.png')
-median = cv2.medianBlur(img, 31)
-compare = np.concatenate((img, median), axis=1) #side by side comparison
 
 
-cv2.imwrite("/home/luolu/Downloads/data/yashi_bp/pore_throat_img/filter_16-0460_5.png", median)
+if __name__ == '__main__':
+    base_name = ''
+    counter = 0
+    for filename in sorted(glob.glob('/home/luolu/Downloads/data/yashi_bp/pore_throat_img/pore_cleaned/*.png')):
+        img = cv2.imread(filename, 0)
+        # height, width, channels = img.shape
+        print(filename)
+        base_name = os.path.basename(filename)
 
-# cv2.namedWindow('img', flags=2)
-# cv2.imshow('img', compare)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
+        median = cv2.medianBlur(img, 31)
+        
+
+        cv2.imwrite("/home/luolu/Downloads/data/yashi_bp/pore_throat_img/pore_filtered/" + base_name, median)
+
+        # cv2.namedWindow('img', flags=2)
+        # cv2.imshow('img', compare)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
