@@ -16,6 +16,11 @@
   <img src='image/cleaned_16-0460_5.png' width='800'/>
 </p>
 
+## color cleaned 
+<p align='left'>  
+  <img src='image/color_cleaned_16-0460_5.png' width='800'/>
+</p>
+
 
 # preprocess step
 ##    1. ectract pore 

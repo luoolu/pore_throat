@@ -40,7 +40,7 @@ if __name__ == '__main__':
         # data[..., :-1][white_areas.T] = (0, 0, 0)
 
         white_areas = (red == 0) & (blue == 0) & (green == 0)
-        data[..., :-1][white_areas.T] = (0, 41, 58)
+        data[..., :-1][white_areas.T] = (12, 61, 134)
 
         # light Blue 0, 255, 255
         # fen,  255, 192, 192
